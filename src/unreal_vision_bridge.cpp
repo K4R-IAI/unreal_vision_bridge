@@ -429,7 +429,7 @@ private:
 
     tf::Vector3 translationLink(packet.header.translation.x, packet.header.translation.y, packet.header.translation.z-0.02);
     tf::Quaternion rotationLink(packet.header.rotation.x, packet.header.rotation.y, packet.header.rotation.z, packet.header.rotation.w);
-    broadcaster.sendTransform(tf::StampedTransform(tf::Transform(rotationLink, translationLink), header.stamp, "map", baseNameTF + UV_TF_LINK));
+    broadcaster.sendTransform(tf::StampedTransform(tf::Transform(rotationLink, translationLink), header.stamp, "odom", baseNameTF + UV_TF_LINK));
 
     tf::Vector3 translationCamera(0.0, 0.0, 0.0);
     tf::Quaternion rotationCamera;
