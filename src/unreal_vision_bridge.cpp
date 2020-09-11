@@ -354,7 +354,7 @@ private:
       if(header.size != 0 && left == 0)
       {
         uint64_t now = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
-        OUT_INFO("package complete. delay: " << (now - header.timestampSent) / 1000000.0 << " ms.");
+        // OUT_INFO("package complete. delay: " << (now - header.timestampSent) / 1000000.0 << " ms.");
 
         if(header.sizeHeader != sizeof(PacketHeader))
         {
@@ -425,7 +425,7 @@ private:
 
     uint64_t now = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
     header.stamp.fromNSec((ros::Time::now() - ros::Time().fromNSec(now - packet.header.timestampCapture)).toNSec());
-    OUT_INFO("capture delay: " << (now - packet.header.timestampCapture) / 1000000.0 << " ms.");
+    // OUT_INFO("capture delay: " << (now - packet.header.timestampCapture) / 1000000.0 << " ms.");
 
     tf::Vector3 translationLink(packet.header.translation.x, packet.header.translation.y, packet.header.translation.z-0.02);
     tf::Quaternion rotationLink(packet.header.rotation.x, packet.header.rotation.y, packet.header.rotation.z, packet.header.rotation.w);
